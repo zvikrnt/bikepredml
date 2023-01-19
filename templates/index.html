@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bike Price Prediction</title>
+    <link rel = "icon" href = 
+"/static/ORU77Q0 (2).jpg" 
+        type = "image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid" >
+          <div class="mx-auto order-0">
+          <a class="navbar-brand mx-auto"  href="/"><img src="/static/image (2).png" alt="" width="30" height="30" class="d-inline-block align-text-top mb-1">  Price Predictor</a>
+          </div>
+        </div>
+      </nav>
+<div class = 'container mb-3'>
+    <h2 style="text-align: center;">Second Hand Bike Price Predictor</h2>
+    <h5>Enter the following values to predict the value of your Bike:</h5>
+    <br>
+    <form action="{{ url_for('getPredict') }}" method="POST" >
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label >Brand</label>
+            <select id="inputState" name="brand_no" class="form-select" required="required">
+              <option selected value="0">BMW</option>
+              <option value="1">Bajaj</option>
+              <option value="2">Beneli</option>
+              <option value="3">Ducati</option>
+              <option value="4">Harley-Davidson</option>
+              <option value="5">Hero</option>
+              <option value="6">Honda</option>
+              <option value="7">Hyosung</option>
+              <option value="8">Ideal</option>
+              <option value="9">Indian</option>
+              <option value="10">Jawa</option>
+              <option value="11">KTM</option>
+              <option value="12">Kawasaki</option>
+              <option value="13">LML</option>
+              <option value="14">MV</option>
+              <option value="15">Mahindra</option>
+              <option value="16">Rajdoot</option>
+              <option value="17">Royal Enfield</option>
+              <option value="18">Suzuki</option>
+              <option value="19">TVS</option>
+              <option value="20">Triumph</option>
+              <option value="21">Yamaha</option>
+              <option value="22">Yezdi</option>
+            </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label >Kms Driven</label>
+          <input name="kms_driven" type="number" required="required" class="form-control">
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <label >Owner</label>
+            <select name="owner" id="inputState" required="required" class="form-select">
+              <option selected value="1">First Owner</option>
+              <option value="2">Second Owner</option>
+              <option value="3">Third Owner</option>
+              <option value="4">Fourth Owner Or More</option>
+            </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label>Age</label>
+          <input name="age" type="number" required="required" class="form-control" id="">
+        </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <label>Power/CC</label>
+            <input type="number" name="power" required="required" class="form-control" id="">
+          </div>
+          </div>
+      </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+    <br>
+    <br>
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+       {{ prediction_text  }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
